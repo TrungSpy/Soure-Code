@@ -67,6 +67,7 @@ public final class R {
         public static final int transparent_black=0x7f020035;
     }
     public static final class id {
+        public static final int Synchronize=0x7f05004b;
         public static final int about=0x7f05004a;
         public static final int albumArt=0x7f050029;
         public static final int albumArtLeft=0x7f05002b;

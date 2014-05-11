@@ -1,3 +1,6 @@
+/**
+ * @author Phan Van Trung
+ */
 package com.turtleplayer.playlist.playorder;
 
 import com.turtleplayer.model.Track;

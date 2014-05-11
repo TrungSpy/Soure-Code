@@ -1,3 +1,6 @@
+/**
+ * @author Phan Van Trung
+ */
 package com.mpatric.mp3agic;
 
 public class ID3v23Tag extends AbstractID3v2Tag {

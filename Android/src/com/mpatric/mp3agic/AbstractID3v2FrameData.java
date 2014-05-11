@@ -1,3 +1,7 @@
+
+/**
+ * @author Phan Van Trung
+ */
 package com.mpatric.mp3agic;
 
 public abstract class AbstractID3v2FrameData {

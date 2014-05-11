@@ -1,19 +1,5 @@
-/*
- * 
- * TURTLE PLAYER
- * 
- * Licensed under MIT & GPL
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
- * PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
- * OR OTHER DEALINGS IN THE SOFTWARE.
- * 
- * Created by Edd Turtle (www.eddturtle.co.uk)
- * More Information @ www.turtle-player.co.uk
- * 
+/**
+ * @author Phan Van Trung
  */
 
 package com.turtleplayer;
@@ -63,6 +49,7 @@ import com.turtleplayer.view.FileChooser;
 
 import java.util.HashSet;
 import java.util.Set;
+import com.loopj.android.http.*;
 
 public class Player extends ListActivity
 {
@@ -111,6 +98,7 @@ public class Player extends ListActivity
 	TextView rescanProgressBarIndicatorState;
 	TextView rescanProgressBarIndicatorAll;
 	ImageView rescanTogglePause;
+	Button synchronize;
 
 	private TextView duration;
 	private TextView currTrackPosition;
@@ -212,6 +200,7 @@ public class Player extends ListActivity
 		rescanProgressBarIndicatorTrack = (TextView) findViewById(R.id.rescanProgressBarIndicatorTrack);
 		rescanTogglePause = (ImageView) findViewById(R.id.togglePause);
 		chooseMediaDir = (ImageView) findViewById(R.id.chooseMediaDir);
+		synchronize=(Button) findViewById(R.id.Synchronize);
 	}
 
 	@Override
@@ -405,6 +394,17 @@ public class Player extends ListActivity
 				Player.this.startActivityForResult(dirChooserIntent, DIR_CHOOSER_REQUEST);
 			}
 		});
+		synchronize.setOnClickListener(new OnClickListener(){
+			public void onClick(View v)
+			{
+				AsyncHttpClient client = new AsyncHttpClient();
+				client.get("http://music-app.tenkana.vn/api/playlists", new AsyncHttpResponseHandler() {
+//				    public void onSuccess(String response) {
+//				        System.out.println(response);
+//				    }
+				});
+		}
+	});
 	}
 
 	private void SetupObservers()

@@ -1,3 +1,6 @@
+/**
+ * @author Phan Van Trung
+ */
 package com.turtleplayer.presentation;
 
 import com.turtleplayer.model.InstanceVisitor;

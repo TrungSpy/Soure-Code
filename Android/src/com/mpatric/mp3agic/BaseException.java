@@ -1,3 +1,6 @@
+/**
+ * @author Phan Van Trung
+ */
 package com.mpatric.mp3agic;
 
 public class BaseException extends Exception {

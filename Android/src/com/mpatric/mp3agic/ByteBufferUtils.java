@@ -1,4 +1,6 @@
-
+/**
+ * @author Phan Van Trung
+ */
 package com.mpatric.mp3agic;
 
 import java.nio.ByteBuffer;

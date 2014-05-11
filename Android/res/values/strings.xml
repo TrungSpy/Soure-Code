@@ -4,7 +4,7 @@
     <!-- Global -->
     <string name="app_name">TurtlePlayer</string>
     <string name="app_url">turtle-player.co.uk</string>
-    <string name="app_desc">Find out more about this open-source app at: turtle-player.co.uk</string>
+    <string name="app_desc">Synchronize the new playlist files by click the following button:</string>
     
     <string name="zero">0</string>
     <string name="trackPostionSeparator"> / </string>
