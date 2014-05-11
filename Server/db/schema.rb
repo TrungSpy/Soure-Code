@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511091845) do
-
-  create_table "playlist_songs", force: true do |t|
-    t.integer "playlist_id"
-    t.integer "song_id"
-  end
+ActiveRecord::Schema.define(version: 20140511194356) do
 
   create_table "playlists", force: true do |t|
     t.string  "name"
@@ -26,9 +21,10 @@ ActiveRecord::Schema.define(version: 20140511091845) do
 
   create_table "songs", force: true do |t|
     t.string   "song_name"
+    t.integer  "playlist_id"
     t.text     "song_lyric"
     t.text     "description"
-    t.integer  "ranking"
+    t.string   "external_link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140511091845) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
