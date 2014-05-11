@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511084356) do
+ActiveRecord::Schema.define(version: 20140511091845) do
+
+  create_table "playlist_songs", force: true do |t|
+    t.integer "playlist_id"
+    t.integer "song_id"
+  end
+
+  create_table "playlists", force: true do |t|
+    t.string  "name"
+    t.integer "owner"
+    t.string  "description"
+  end
+
+  create_table "songs", force: true do |t|
+    t.string   "song_name"
+    t.text     "song_lyric"
+    t.text     "description"
+    t.integer  "ranking"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
