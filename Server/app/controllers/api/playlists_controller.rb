@@ -1,7 +1,7 @@
 module Api
-  def PlaylistsController < ApplicationController
+  class PlaylistsController < ApplicationController
     def index
-
+      render :json => Playlist.all
     end
 
     def show
