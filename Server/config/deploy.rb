@@ -4,6 +4,8 @@ set :repo_url, 'git@bitbucket.org:huanvn/music-app.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, '/home/tenkana/rails/music-app'
+set :deploy_via, 'remote_cache_with_project_root'
+set :project_root, 'Server'
 # set :scm, :git
 
 # set :format, :pretty
@@ -11,6 +13,7 @@ set :deploy_to, '/home/tenkana/rails/music-app'
 # set :pty, true
 
 # set :linked_files, %w{config/database.yml}
+set :linked_files, %w{db/production.db}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
