@@ -11,7 +11,7 @@ set :deploy_to, '/home/tenkana/rails/music-app'
 # set :pty, true
 
 # set :linked_files, %w{config/database.yml}
-set :linked_files, %w{Server/db/production.db}
+set :linked_files, %w{Server/db/production.sqlite3}
 set :linked_dirs, %w{Server/tmp/pids Server/tmp/cache Server/log Server/bin}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
@@ -29,7 +29,7 @@ namespace :deploy do
   end
 
   after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    on roles(:web), in: :groups, limit: 3 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
