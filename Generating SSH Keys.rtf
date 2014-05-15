@@ -1,0 +1,132 @@
+{\rtf1\ansi\ansicpg932\cocoartf1265\cocoasubrtf190
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red39\green74\blue95;\red38\green38\blue38;\red193\green193\blue193;
+\red83\green83\blue83;\red248\green255\blue82;\red86\green227\blue81;\red29\green58\blue95;\red52\green110\blue183;
+\red242\green184\blue160;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21680\viewh11380\viewkind0
+\deftab720
+\pard\pardeftab720\sa480
+
+\f0\b\fs48 \cf2 Step 1: Check for SSH keys\
+\pard\pardeftab720\sa300
+
+\b0\fs30 \cf3 First, we need to check for existing SSH keys on your computer. Open up your Terminal and type:\
+\pard\pardeftab720
+
+\f1\fs26 \cf1 \cb3 cd ~/.ssh\
+ls -al\
+\pard\pardeftab720
+\cf4 # Lists the files in your .ssh directory\cf1 \
+\pard\pardeftab720\sa300
+
+\f0\fs30 \cf3 \cb1 Check the directory listing to see if you have files named either 
+\f1\fs26 \cf5 id_rsa.pub
+\f0\fs30 \cf3  or 
+\f1\fs26 \cf5 id_dsa.pub
+\f0\fs30 \cf3 . If you don't have either of those files go to 
+\b step 2
+\b0 . Otherwise, you can skip to 
+\b step 3
+\b0 .\
+\pard\pardeftab720\sa480
+
+\b\fs48 \cf2 Step 2: Generate a new SSH key\
+\pard\pardeftab720\sa300
+
+\b0\fs30 \cf3 To generate a new SSH key, copy and paste the text below, making sure to substitute in your email. The default settings are preferred, so when you're asked to "enter a file in which to save the key,"" just press enter to continue.\
+\pard\pardeftab720
+
+\f1\fs26 \cf1 \cb3 ssh-keygen -t rsa -C "\cf6 your_email@example.com\cf1 "\
+\pard\pardeftab720
+\cf4 # Creates a new ssh key, using the provided email as a label\cf1 \
+\pard\pardeftab720
+\cf7 # \
+Generating public/private rsa key pair.\cf1 \
+\cf7 # \
+Enter file in which to save the key (/Users/\cf6 you\cf7 /.ssh/id_rsa): \cf6 [Press enter]\cf1 \
+\pard\pardeftab720\sa300
+
+\f0\fs30 \cf3 \cb1 Next, you'll be asked to enter a passphrase.\
+\pard\pardeftab720
+
+\b\fs24 \cf8 \shad\shadx0\shady-20\shadr0\shado1 \shadc0 Tip:
+\b0 \shad\shadx0\shady-20\shadr0\shado1 \shadc0  We strongly recommend a very good, secure passphrase. For more information, see {\field{\*\fldinst{HYPERLINK "https://help.github.com/articles/working-with-ssh-key-passphrases"}}{\fldrslt \cf9 \shad\shadx0\shady-20\shadr0\shado1 \shadc0 Working with SSH key passphrases}}.\
+\pard\pardeftab720
+
+\f1\fs26 \cf7 \cb3 \shad0 # \
+Enter passphrase (empty for no passphrase): \cf6 [Type a passphrase]\cf1 \
+\cf7 # \
+Enter same passphrase again: \cf6 [Type passphrase again]\cf1 \
+\pard\pardeftab720\sa300
+
+\f0\fs30 \cf3 \cb1 Which should give you something like this:\
+\pard\pardeftab720
+
+\f1\fs26 \cf7 \cb3 # \
+Your identification has been saved in /Users/\cf6 you\cf7 /.ssh/id_rsa.\cf1 \
+\cf7 # \
+Your public key has been saved in /Users/\cf6 you\cf7 /.ssh/id_rsa.pub.\cf1 \
+\cf7 # \
+The key fingerprint is:\cf1 \
+\cf7 # \
+\pard\pardeftab720
+\cf6 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com\cf1 \
+\pard\pardeftab720\sa300
+
+\f0\fs30 \cf3 \cb1 Then add your new key to the ssh-agent:\
+\pard\pardeftab720
+
+\f1\fs26 \cf1 \cb3 ssh-add ~/.ssh/id_rsa\
+\pard\pardeftab720\sa480
+
+\f0\b\fs48 \cf2 \cb1 Step 3: Add your SSH key to GitHub\
+\pard\pardeftab720\sa300
+
+\b0\fs30 \cf3 Run the following code to copy the key to your clipboard.\
+\pard\pardeftab720
+
+\f1\fs26 \cf1 \cb3 pbcopy < ~/.ssh/id_rsa.pub\
+\pard\pardeftab720
+\cf4 # Copies the contents of the id_rsa.pub file to your clipboard\cf1 \
+\pard\pardeftab720\sa300
+
+\f0\fs30 \cf3 \cb1 Alternatively, using your favorite text editor, you can open the 
+\i ~/.ssh/id_rsa.pub
+\i0  file and copy the contents of the file manually\
+Start  git to connect:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf10 \cb0 \CocoaLigature0 409  git config user.name "PhanVanTrung"\
+410  git config user.email "vantrungphan2012@gmail.com"\
+\
+\pard\pardeftab720\sa300
+
+\f0\fs30 \cf3 \cb1 \CocoaLigature1 Add file to git\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf10 \cb0 \CocoaLigature0   411  ls\
+  412  git add ./\
+
+\f0\fs30 \cf3 \cb1 \CocoaLigature1 Tao 1 remote voi git repository \
+
+\f1\fs24 \cf10 \cb0 \CocoaLigature0   413  git remote add original1 git@bitbucket.org:PhanVanTrung/test.git\
+  414  git remote -v\
+\
+
+\f0\fs30 \cf3 \cb1 \CocoaLigature1 \
+\pard\pardeftab720\sa300
+\cf3 Commit to local repository\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf10 \cb0 \CocoaLigature0   415  git commit -m "lan1"
+\f0\fs30 \cf3 \cb1 \CocoaLigature1 \
+\pard\pardeftab720\sa300
+\cf3  Before push source code , you should pull source code \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf10 \cb0 \CocoaLigature0   422  git pull original1 master\
+\
+
+\f0\fs30 \cf3 \cb1 \CocoaLigature1 Push \
+
+\f1\fs24 \cf10 \cb0 \CocoaLigature0   423  git push original1 master}
